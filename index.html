@@ -55,6 +55,9 @@ body {
 
 async function textOverlay() {
 
+  document.getElementById("dataentry").style.display = "none";
+  document.getElementById("spinner").style.display = "block";
+  document.getElementById("image").style.display = "none";
 
    const image = await Jimp.read('./pfi.png');
    // Defining the text font
@@ -69,10 +72,23 @@ async function textOverlay() {
    image.getBase64(Jimp.AUTO,function(err,data){
         console.log(data);
         var el = document.getElementById("image");
-        el.innerHTML="<img src= "+ data +" width=\"800px\">";
-        document.getElementById("dataentry").style.display = "none";
+        el.innerHTML="<img src= "+ data +" width=\"100%\">";
+        document.getElementById("spinner").style.display = "none";
+        document.getElementById("image").style.display = "block";
+        document.getElementById("regenerate").style.display = "block";
+
 
     });
+
+}
+
+function  regenerate(){
+  document.getElementById("dataentry").style.display = "block";
+  // document.getElementById("image").style.display = "none";
+  document.getElementById("regenerate").style.display = "none";
+
+  var el = document.getElementById("image");
+  el.innerHTML="";
 
 }
 
@@ -89,8 +105,39 @@ async function textOverlay() {
     <h2>Price Image Generator</h2>
 
   </div>
+
+  <div class = "centerdiv" id = "regenerate" style="display:none">
+
+    <table width = "100%">
+      <tbody>
+      <tr>
+        <td align = "center">
+          <input type = "button" onclick="regenerate()" value = "Re-Generate" />
+        </td>
+      </tr>
+    </table>
+
+
+  </div>
+
+  <div id="image" class = "center centerdiv">
+  </div>
+  <div id = "spinner" class = "centerdiv" style="display:none">
+    <table width = "100%">
+      <tbody>
+      <tr>
+        <td align = "center">
+          <img src = "spinner.gif" />
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+
+
   <div class = "centerdiv" id = "dataentry">
-    <table class = "pricetable">
+    <table class = "centerdiv pricetable">
 
       <tbody>
       <tr>
@@ -134,7 +181,7 @@ async function textOverlay() {
   </div>
 
   <br/>
-  <div id="image" class = "centerdiv"></div>
+
 
 
 </body>
