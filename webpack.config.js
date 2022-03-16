@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry:  {
-      productionProcess : path.resolve(__dirname,  "src/productionProcess.js")
+      productionProcess : path.resolve(__dirname,  "index.js")
 
   },
   target: 'web',

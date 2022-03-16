@@ -22,20 +22,17 @@
 }
 
 
-.pricetable {border-spacing: 2px;}
+.pricetable {border-spacing: 2px; border-collapse: collapse;}
 .pricetable thead tr td    {padding: 20px;border: 1px solid black;font-weight: bolder;}
 
 .pricetable tbody tr td    {padding: 20px;border: 1px solid black;}
-
 
 td{
   align-items: center;
   vertical-align: middle;
 }
 
-.textbox{
-  border: 1px solid black;
-}
+
 
 
 body {
@@ -49,87 +46,7 @@ body {
 
 
 
-.thumbnail {
-    position: relative;
-    display: inline-block;
-}
 
-.imgmain{
-  width: 100%;
-}
-
-.date{
-    position: absolute;
-    font-size: xx-large;
-    top: 30%;
-    left: 50%;
-    transform: translate( -50%, -50% );
-    text-align: center;
-    color: black;
-    font-weight: bold;
-}
-
-
-
-.price1{
-    position: absolute;
-    font-size: xx-large;
-    top: 39%;
-    left: 83%;
-    transform: translate( -50%, -50% );
-    text-align: center;
-    color: white;
-    font-weight: bold;
-}
-
-
-.price2{
-    position: absolute;
-    font-size: xx-large;
-    top: 45%;
-    left: 83%;
-    transform: translate( -50%, -50% );
-    text-align: center;
-    color: white;
-    font-weight: bold;
-}
-
-
-
-.price3{
-    position: absolute;
-    font-size: xx-large;
-    top: 49%;
-    left: 83%;
-    transform: translate( -50%, -50% );
-    text-align: center;
-    color: white;
-    font-weight: bold;
-}
-
-
-
-.price4{
-    position: absolute;
-    font-size: xx-large;
-    top: 54%;
-    left: 83%;
-    transform: translate( -50%, -50% );
-    text-align: center;
-    color: white;
-    font-weight: bold;
-}
-
-.place{
-  position: absolute;
-  font-size: xx-large;
-  bottom: 0%;
-  left: 83%;
-  transform: translate( -50%, -50% );
-  text-align: center;
-  color: black;
-  font-weight: bold;
-}
 
 </style>
 
@@ -165,10 +82,7 @@ async function textOverlay() {
 </head>
 <body id = "body">
 
-  <div class = "centerdiv">
-    <h1>PFI Tirumala TMT Steel - Prakash Ferrous Industries</h1>
 
-  </div>
 
   <div class = "centerdiv">
 
@@ -177,76 +91,44 @@ async function textOverlay() {
   </div>
   <div class = "centerdiv" id = "dataentry">
     <table class = "pricetable">
-      <thead>
-      <tr>
-        <td align = "center">
-        Grades
-        </td>
-        <td align = "center">
-        Size
-        </td>
-        <td align = "center">
-        Price
-        </td>
-      </tr>
 
-      </thead>
       <tbody>
       <tr>
         <td align = "center">
-          FE 550
-        </td>
-        <td align = "center">
-          12 - 25 MM
-        </td>
-        <td align = "center">
-          <input type="text" id = "price1" />
+          <input type="text" id = "price1"  placeholder="FE 550 (12 - 25 MM)"/>
         </td>
       </tr>
       <tr>
         <td align = "center">
-          FE 550
-        </td>
-        <td align = "center">
-          10 MM
-        </td>
-        <td align = "center">
-          <input type="text" id = "price2" />
+          <input type="text" id = "price2"  placeholder="FE 550 (10 MM)"/>
         </td>
       </tr>
       <tr>
         <td align = "center">
-          FE 550
-        </td>
-        <td align = "center">
-          08 & 32 MM
-        </td>
-        <td align = "center">
-          <input type="text" id = "price3" />
+          <input type="text" id = "price3"  placeholder="FE 550 (08 & 32 MM)"/>
         </td>
       </tr>
       <tr>
         <td align = "center">
-          FE 550D
-        </td>
-        <td align = "center">
-          12 - 25 MM
-        </td>
-        <td align = "center">
-          <input type="text" id = "price4" />
+          <input type="text" id = "price4"  placeholder="FE 550D (12 - 25 MM)"/>
         </td>
       </tr>
       <tr>
         <td align = "center">
           <input type="text" id = "place"  placeholder="Place"/>
         </td>
-        <td>
+      </tr>
+      <tr>
+        <td align = "center">
           <input type="text" id = "date" placeholder="Date"/>
         </td>
+      </tr>
+      <tr>
         <td align = "center">
-        <input type = "button" onclick="textOverlay()" value = "Generate" />
+          <input type = "button" onclick="textOverlay()" value = "Generate" />
         </td>
       </tr>
+
       </tbody>
     </table>
   </div>
