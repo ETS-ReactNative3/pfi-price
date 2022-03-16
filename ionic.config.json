@@ -1,7 +1,0 @@
-{
-  "name": "pfi-price",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react"
-}
