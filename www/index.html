@@ -1,1 +1,188 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src * 'unsafe-inline' https://fonts.googleapis.com; font-src * data: https://fonts.gstatic.com; media-src *; img-src * data: content:;"><meta name="format-detection" content="telephone=no"><meta name="msapplication-tap-highlight" content="no"><link rel="shortcut icon" href="./favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/><meta name="theme-color" content="#000000"/><link rel="manifest" href="./manifest.json"/><title>React App</title><link href="./static/css/main.b441aa73.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script type="text/javascript" src="cordova.js"></script><script>!function(l){function e(e){for(var r,t,n=e[0],o=e[1],u=e[2],f=0,i=[];f<n.length;f++)t=n[f],p[t]&&i.push(p[t][0]),p[t]=0;for(r in o)Object.prototype.hasOwnProperty.call(o,r)&&(l[r]=o[r]);for(s&&s(e);i.length;)i.shift()();return c.push.apply(c,u||[]),a()}function a(){for(var e,r=0;r<c.length;r++){for(var t=c[r],n=!0,o=1;o<t.length;o++){var u=t[o];0!==p[u]&&(n=!1)}n&&(c.splice(r--,1),e=f(f.s=t[0]))}return e}var t={},p={2:0},c=[];function f(e){if(t[e])return t[e].exports;var r=t[e]={i:e,l:!1,exports:{}};return l[e].call(r.exports,r,r.exports,f),r.l=!0,r.exports}f.m=l,f.c=t,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},f.t=function(r,e){if(1&e&&(r=f(r)),8&e)return r;if(4&e&&"object"==typeof r&&r&&r.__esModule)return r;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:r}),2&e&&"string"!=typeof r)for(var n in r)f.d(t,n,function(e){return r[e]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,"a",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p="./";var r=window.webpackJsonp=window.webpackJsonp||[],n=r.push.bind(r);r.push=e,r=r.slice();for(var o=0;o<r.length;o++)e(r[o]);var s=n;a()}([])</script><script src="./static/js/1.68137632.chunk.js"></script><script src="./static/js/main.a18c7807.chunk.js"></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PFI Tirumala TMT Steel - Prakash Ferrous Industries</title>
+<meta name="description" content="Oil and gas byproduct production diagram." />
+<meta charset="UTF-8">
+
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jimp/0.16.2-canary.1073.1276.0/jimp.js"> </script>
+
+<style type="text/css">
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centerdiv{
+   margin-top: 1rem;
+   display: flex;
+   justify-content: center;
+}
+
+
+.pricetable {border-spacing: 2px; border-collapse: collapse;}
+.pricetable thead tr td    {padding: 20px;border: 1px solid black;font-weight: bolder;}
+
+.pricetable tbody tr td    {padding: 20px;border: 1px solid black;}
+
+td{
+  align-items: center;
+  vertical-align: middle;
+}
+
+
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
+</style>
+
+<script type="text/javascript">
+
+
+async function textOverlay() {
+
+  document.getElementById("dataentry").style.display = "none";
+  document.getElementById("spinner").style.display = "block";
+  document.getElementById("image").style.display = "none";
+
+   const image = await Jimp.read('./pfi.png');
+   // Defining the text font
+   const font = await Jimp.loadFont(Jimp.FONT_SANS_128_BLACK);
+   await image.print(font, 2800, 2100, document.getElementById("price1").value);
+   await image.print(font, 2800, 2350, document.getElementById("price2").value);
+   await image.print(font, 2800, 2550, document.getElementById("price3").value);
+   await image.print(font, 2800, 2750, document.getElementById("price4").value);
+   await image.print(font, 1400, 1550, document.getElementById("date").value);
+   await image.print(font, 2800, 4850, document.getElementById("place").value);
+
+   image.getBase64(Jimp.AUTO,function(err,data){
+        console.log(data);
+        var el = document.getElementById("image");
+        el.innerHTML="<img src= "+ data +" width=\"100%\">";
+        document.getElementById("spinner").style.display = "none";
+        document.getElementById("image").style.display = "block";
+        document.getElementById("regenerate").style.display = "block";
+
+
+    });
+
+}
+
+function  regenerate(){
+  document.getElementById("dataentry").style.display = "block";
+  // document.getElementById("image").style.display = "none";
+  document.getElementById("regenerate").style.display = "none";
+
+  var el = document.getElementById("image");
+  el.innerHTML="";
+
+}
+
+// textOverlay();
+
+</script>
+</head>
+<body id = "body">
+
+
+
+  <div class = "centerdiv">
+
+    <h2>Price Image Generator</h2>
+
+  </div>
+
+  <div class = "centerdiv" id = "regenerate" style="display:none">
+
+    <table width = "100%">
+      <tbody>
+      <tr>
+        <td align = "center">
+          <input type = "button" onclick="regenerate()" value = "Re-Generate" />
+        </td>
+      </tr>
+    </table>
+
+
+  </div>
+
+  <div id="image" class = "center centerdiv">
+  </div>
+  <div id = "spinner" class = "centerdiv" style="display:none">
+    <table width = "100%">
+      <tbody>
+      <tr>
+        <td align = "center">
+          <img src = "spinner.gif" />
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+
+
+  <div class = "centerdiv" id = "dataentry">
+    <table class = "centerdiv pricetable">
+
+      <tbody>
+      <tr>
+        <td align = "center">
+          <input type="text" id = "price1"  placeholder="FE 550 (12 - 25 MM)"/>
+        </td>
+      </tr>
+      <tr>
+        <td align = "center">
+          <input type="text" id = "price2"  placeholder="FE 550 (10 MM)"/>
+        </td>
+      </tr>
+      <tr>
+        <td align = "center">
+          <input type="text" id = "price3"  placeholder="FE 550 (08 & 32 MM)"/>
+        </td>
+      </tr>
+      <tr>
+        <td align = "center">
+          <input type="text" id = "price4"  placeholder="FE 550D (12 - 25 MM)"/>
+        </td>
+      </tr>
+      <tr>
+        <td align = "center">
+          <input type="text" id = "place"  placeholder="Place"/>
+        </td>
+      </tr>
+      <tr>
+        <td align = "center">
+          <input type="text" id = "date" placeholder="Date"/>
+        </td>
+      </tr>
+      <tr>
+        <td align = "center">
+          <input type = "button" onclick="textOverlay()" value = "Generate" />
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <br/>
+
+
+
+</body>
+</html>
