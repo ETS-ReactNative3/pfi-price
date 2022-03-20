@@ -61,13 +61,15 @@ async function textOverlay() {
 
    const image = await Jimp.read('./pfi.png');
    // Defining the text font
-   const font = await Jimp.loadFont(Jimp.FONT_SANS_128_BLACK);
-   await image.print(font, 2800, 2100, document.getElementById("price1").value);
-   await image.print(font, 2800, 2350, document.getElementById("price2").value);
-   await image.print(font, 2800, 2550, document.getElementById("price3").value);
-   await image.print(font, 2800, 2750, document.getElementById("price4").value);
-   await image.print(font, 1400, 1550, document.getElementById("date").value);
-   await image.print(font, 2800, 4850, document.getElementById("place").value);
+   const font_white = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
+   const font_black = await Jimp.loadFont(Jimp.FONT_SANS_128_BLACK);
+
+   await image.print(font_white, 2800, 2100, document.getElementById("price1").value);
+   await image.print(font_white, 2800, 2350, document.getElementById("price2").value);
+   await image.print(font_white, 2800, 2550, document.getElementById("price3").value);
+   await image.print(font_white, 2800, 2750, document.getElementById("price4").value);
+   await image.print(font_black, 1400, 1550, document.getElementById("date").value);
+   await image.print(font_white, 2800, 4830, document.getElementById("place").value);
 
    image.getBase64(Jimp.AUTO,function(err,data){
         console.log(data);
@@ -100,7 +102,7 @@ function  regenerate(){
 
 
 
-  <div class = "centerdiv">
+  <!-- <div class = "centerdiv">
 
     <h2>Price Image Generator</h2>
 
@@ -118,7 +120,7 @@ function  regenerate(){
     </table>
 
 
-  </div>
+  </div> -->
 
   <div id="image" class = "center centerdiv">
   </div>
@@ -142,22 +144,22 @@ function  regenerate(){
       <tbody>
       <tr>
         <td align = "center">
-          <input type="text" id = "price1"  placeholder="FE 550 (12 - 25 MM)"/>
+          <input type="number" id = "price1"  placeholder="FE 550 (12 - 25 MM)"/>
         </td>
       </tr>
       <tr>
         <td align = "center">
-          <input type="text" id = "price2"  placeholder="FE 550 (10 MM)"/>
+          <input type="number" id = "price2"  placeholder="FE 550 (10 MM)"/>
         </td>
       </tr>
       <tr>
         <td align = "center">
-          <input type="text" id = "price3"  placeholder="FE 550 (08 & 32 MM)"/>
+          <input type="number" id = "price3"  placeholder="FE 550 (08 & 32 MM)"/>
         </td>
       </tr>
       <tr>
         <td align = "center">
-          <input type="text" id = "price4"  placeholder="FE 550D (12 - 25 MM)"/>
+          <input type="number" id = "price4"  placeholder="FE 500D (12 - 25 MM)"/>
         </td>
       </tr>
       <tr>
